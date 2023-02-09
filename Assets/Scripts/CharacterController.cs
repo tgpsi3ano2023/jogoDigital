@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    //Vari√°veis C√°psula
+    //Vari·veis C·psula
     public UnityEngine.CharacterController controller;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
-    private float playerSpeed = 2.0f;
+    private float playerSpeed = 10.0f;
     private float jumpHeight = 1.0f;
     private float gravityValue = -9.81f;
 
-    // Vari√°veis para Cubos
-    public GameObject verde;
-    public GameObject azul;
-    public GameObject vermelho;
+    // Vari·veis para Cubos
+    //public GameObject verde;
+    //public GameObject azul;
+    //public GameObject vermelho;
 
 
     private void Start()
@@ -51,12 +51,10 @@ public class CharacterController : MonoBehaviour
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
-        if (Vector3.Distance(transform.position, verde.gameObject.transform.position) <= 1)
-        {
-            verde.gameObject.SetActive(false);
+        //if (Vector3.Distance(transform.position, verde.gameObject.transform.position) <= 1)
+        //{
+        //    verde.gameObject.SetActive(false);
 
-        }
+        //}
     }
 }
-    
-
