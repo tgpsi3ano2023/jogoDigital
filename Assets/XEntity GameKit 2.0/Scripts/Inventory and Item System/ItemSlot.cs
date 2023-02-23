@@ -82,7 +82,7 @@ namespace XEntity.InventoryItemSystem
         }
 
         //Returns true if all the conditions are met for the item to be added/stacked.
-        private bool IsAddable(Item item)
+        public bool IsAddable(Item item)
         {
             if (item != null)
             {

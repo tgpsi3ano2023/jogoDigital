@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 namespace XEntity.InventoryItemSystem
 {
@@ -15,6 +17,15 @@ namespace XEntity.InventoryItemSystem
         //List of all the item scriptable obects.
         //Either assign the items manually when created or select the item scriptable object > right click > select Add To Item List 
         public List<Item> itemList = new List<Item>();
+
+        //economy canvas
+        public UnityEngine.UI.Text woodCountText;
+        public UnityEngine.UI.Text woodPercText;
+        private int woodCount;
+        private float woodPercCount;
+        public Slider woodSlider;
+
+        public GameObject tent;
 
         private void Awake()
         {
@@ -33,6 +44,32 @@ namespace XEntity.InventoryItemSystem
             #endregion
 
             //Any code in awake should be after the singleton evaluation
+        }
+
+        void Start()
+        {
+            woodCountText.GetComponent<UnityEngine.UI.Text>().enabled = true;
+            woodPercText.GetComponent<UnityEngine.UI.Text>().enabled = true;
+            tent.gameObject.SetActive(false);
+        }
+
+        void SetWoodCountText(int valor)
+        {
+            woodCount += valor;
+            woodCountText.text = "Wood: " + woodCount.ToString(); 
+         
+            if(woodCount == 15)
+            {
+                tent.gameObject.SetActive(true);
+            }
+                                                                    
+        }
+
+        void WoodPercentUpdate(float value)
+        {
+            woodPercCount += value;
+            woodSlider.value += value;
+            woodPercText.text = Mathf.RoundToInt((woodPercCount * 100) / 15).ToString() + "%";
         }
 
         //This function is called when the Use Item button is clicked from one of the inventory items.
@@ -59,11 +96,16 @@ namespace XEntity.InventoryItemSystem
         {
             Debug.Log("You have consumed " + slot.slotItem.itemName);
             slot.Remove(1);
+
+            //adicionar counter
+            SetWoodCountText(1);
+            WoodPercentUpdate(1);
         }
 
         private void EquipItem(ItemSlot slot) 
         {
             Debug.Log("Equipping " + slot.slotItem.itemName);
+            
         }
 
         private void PlaceItem(ItemSlot slot) 
