@@ -6,6 +6,34 @@ TagManager:
   tags:
   - Obstacle
   - Log
+  - Pedras
+  - Galhos
+  - Cogumelos
+  - Troncos
+  - Macas
+  - Maca
+  - Enemy
+  - PowerUp
+  - AguaTrigg
+  - Fire
+  - Question
+  - Totem
+  - MacaTres
+  - MacaDois
+  - Tronco
+  - TroncoDois
+  - TroncoTres
+  - TroncoQuatro
+  - Stone
+  - TotemDois
+  - Totem3
+  - TotemTres
+  - Exploder
+  - Raft
+  - Boat
+  - Ship
+  - TriggerJangada
+  - TrigFant
   layers:
   - Default
   - TransparentFX
@@ -13,7 +41,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - MiniMap
   - 
   - 
   - 

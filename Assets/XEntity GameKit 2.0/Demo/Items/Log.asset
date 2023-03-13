@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 3
   itemName: Log
-  itemPerSlot: 15
+  itemPerSlot: 4
   icon: {fileID: 21300000, guid: 5670ececbae50904c83b3819eceaece2, type: 3}
   prefab: {fileID: 5479481191441077360, guid: f2974bb2b17e9064cad44805c0222288, type: 3}
-  itemInformation: Logs can be used to build various structures.
+  itemInformation: Os troncos servem para construir casas.

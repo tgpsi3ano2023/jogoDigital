@@ -1,7 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
+using UnityEditor.Graphs;
+using PlasticPipe.PlasticProtocol.Messages;
+using static UnityEditor.Progress;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 namespace XEntity.InventoryItemSystem
 {
@@ -19,13 +23,24 @@ namespace XEntity.InventoryItemSystem
         public List<Item> itemList = new List<Item>();
 
         //economy canvas
-        public UnityEngine.UI.Text woodCountText;
-        public UnityEngine.UI.Text woodPercText;
+        //public UnityEngine.UI.Text woodCountText;
+        //public UnityEngine.UI.Text woodPercText;
         private int woodCount;
-        private float woodPercCount;
-        public Slider woodSlider;
+        private int sticksCount;
+        //private float woodPercCount;
+        //public Slider woodSlider;
 
-        public GameObject tent;
+       // public GameObject tent;
+        public GameObject fogueira;
+        public GameObject casa;
+        public GameObject moinho;
+
+        public GameObject[] troncos;
+        public GameObject[] ramos;
+        public GameObject[] pedras;
+
+        public UnityEngine.UI.Text textTotemCenaSete;
+
 
         private void Awake()
         {
@@ -48,28 +63,22 @@ namespace XEntity.InventoryItemSystem
 
         void Start()
         {
-            woodCountText.GetComponent<UnityEngine.UI.Text>().enabled = true;
-            woodPercText.GetComponent<UnityEngine.UI.Text>().enabled = true;
-            tent.gameObject.SetActive(false);
+            fogueira.gameObject.SetActive(false);
+            casa.gameObject.SetActive(false);
+            moinho.gameObject.SetActive(false);
+
+            troncos = GameObject.FindGameObjectsWithTag("Log");
+            ramos = GameObject.FindGameObjectsWithTag("Galhos");
+            pedras = GameObject.FindGameObjectsWithTag("Stone");
         }
 
-        void SetWoodCountText(int valor)
+        public void Cena6Casa()
         {
-            woodCount += valor;
-            woodCountText.text = "Wood: " + woodCount.ToString(); 
-         
-            if(woodCount == 15)
-            {
-                tent.gameObject.SetActive(true);
-            }
-                                                                    
+            SceneManager.LoadScene("cena6casa");
         }
-
-        void WoodPercentUpdate(float value)
+        public void Cena7Moinho()
         {
-            woodPercCount += value;
-            woodSlider.value += value;
-            woodPercText.text = Mathf.RoundToInt((woodPercCount * 100) / 15).ToString() + "%";
+            SceneManager.LoadScene("cena7moinho");
         }
 
         //This function is called when the Use Item button is clicked from one of the inventory items.
@@ -92,14 +101,29 @@ namespace XEntity.InventoryItemSystem
         //The custom item use method should take ItemSlot as an argument if you are modifying the item in the slot.
         //Note: This item slot is the slot the item is being held at when the use method is called.
 
-        private void ConsumeItem(ItemSlot slot) 
+        private void ConsumeItem(ItemSlot slot)
         {
             Debug.Log("You have consumed " + slot.slotItem.itemName);
-            slot.Remove(1);
+           
+            int contar = itemList.Count;
+            slot.Remove(4);
 
-            //adicionar counter
-            SetWoodCountText(1);
-            WoodPercentUpdate(1);
+                if (troncos.Length == 4 ) 
+                { 
+                    casa.gameObject.SetActive(true);
+                    Invoke("Cena7Moinho", 5);
+                }
+                if (ramos.Length == 4)
+                {
+                    fogueira.gameObject.SetActive(true);
+                    Invoke("Cena6Casa", 5);
+                }
+                if (pedras.Length == 4)
+                {
+                    moinho.gameObject.SetActive(true);
+                    //Invoke("Cena7Moinho", 5);
+                    textTotemCenaSete.text = "Vai até ao Totem!";
+                }
         }
 
         private void EquipItem(ItemSlot slot) 
@@ -110,7 +134,7 @@ namespace XEntity.InventoryItemSystem
 
         private void PlaceItem(ItemSlot slot) 
         {
-            Debug.Log("Placing " + slot.slotItem.itemName);
+            Debug.Log("Placing " + slot.slotItem.itemName);           
         }
 
         private void DefaultItemUse(ItemSlot slot) 

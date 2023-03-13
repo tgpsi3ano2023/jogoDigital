@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb37a5e4810a7744a6b9d1f88712c1d, type: 3}
   m_Name: Stone
   m_EditorClassIdentifier: 
-  type: 0
+  type: 3
   itemName: Stone
-  itemPerSlot: 4
+  itemPerSlot: 12
   icon: {fileID: 21300000, guid: baa105d969cf80349810a7c98998020f, type: 3}
   prefab: {fileID: 2723194821865680392, guid: 6a51c128ec24caa4aa510486e4319313, type: 3}
-  itemInformation: Stones can be used to make tools and weapons.
+  itemInformation: "As pedras servem para construir edif\xEDcios maiores"

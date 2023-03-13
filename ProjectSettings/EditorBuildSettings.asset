@@ -4,5 +4,44 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/2Scenes2/cena11MenuPrinc.unity
+    guid: 96431463decc9f14d9ca3867f1df1967
+  - enabled: 1
+    path: Assets/2Scenes2/cena1aviao.unity
+    guid: b0ca22881865f764399df848971813fa
+  - enabled: 1
+    path: Assets/2Scenes2/cena2aviao.unity
+    guid: e67810ca3feb23d4891ba8f858ea5fc1
+  - enabled: 1
+    path: Assets/2Scenes2/cena5fogueira.unity
+    guid: 8c98b36249dbc93498651747c2371260
+  - enabled: 1
+    path: Assets/2Scenes2/cena6casa.unity
+    guid: 392cae866baa2ca4a898e309e013678a
+  - enabled: 1
+    path: Assets/2Scenes2/cena7moinho.unity
+    guid: 3e2dcee8afb45234c9ad9a57febf7078
+  - enabled: 1
+    path: Assets/2Scenes2/cena8totem.unity
+    guid: 155eca926da832d4584e32b809496009
+  - enabled: 1
+    path: Assets/2Scenes2/cena14battle.unity
+    guid: 1aff96ba80bda0740970ef26f7a502c7
+  - enabled: 1
+    path: Assets/2Scenes2/cena15fim.unity
+    guid: aa3e201c7545d764bbdd1928c07408f8
+  - enabled: 1
+    path: Assets/2Scenes2/cena15fimB.unity
+    guid: 8825f69c5797d8148a58cbe1f5c22e2e
+  - enabled: 1
+    path: Assets/2Scenes2/objetivos.unity
+    guid: 8bd50e92e2b7b454693714563e756b0f
+  - enabled: 1
+    path: Assets/2Scenes2/tutorial.unity
+    guid: da9281c1299609b4c9e5e8b5593a2e9c
+  - enabled: 1
+    path: Assets/2Scenes2/cena10creditos.unity
+    guid: c1a13f2762db5a143b2e911992108a87
   m_configObjects: {}
